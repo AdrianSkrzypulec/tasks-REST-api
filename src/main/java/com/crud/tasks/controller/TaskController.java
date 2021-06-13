@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/task")
 @RequiredArgsConstructor
@@ -31,8 +32,7 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public void deleteTask(@RequestParam Long taskId) throws TaskNotFoundException {
-        Task task = service.getTask(taskId).orElseThrow(TaskNotFoundException::new);
+    public void deleteTask(@RequestParam Long taskId) {
         service.deleteTask(taskId);
     }
 
