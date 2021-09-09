@@ -1,17 +1,17 @@
 package com.crud.tasks.domain;
 
-//import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-
 import java.util.List;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-//@Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
-@Data
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloBoardDto {
 
     @JsonProperty("name")
