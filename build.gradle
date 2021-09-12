@@ -29,7 +29,7 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok:1.18.20'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' //heroku
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' //heroku
 }
 
 test {
