@@ -48,9 +48,9 @@ class TrelloClientTest {
         URI uri = new URI("http://test.com/members/test/boards?key=test&token=test&fields=name,id&lists=all");
 
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
-//        // When
+        // When
         List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
-//        // Then
+        // Then
         assertEquals(1, fetchedTrelloBoards.size());
         assertEquals("test_id", fetchedTrelloBoards.get(0).getId());
         assertEquals("test_board", fetchedTrelloBoards.get(0).getName());
@@ -89,7 +89,7 @@ class TrelloClientTest {
 
     @MockitoSettings(strictness = Strictness.WARN)
     @Test
-    public void shouldReturnEmptyListifresprnseIsNull() throws URISyntaxException {
+    public void shouldReturnEmptyListIfResponseIsNull() throws URISyntaxException {
         // Given
         when(trelloConfig.getTrelloApiEndpoint()).thenReturn("http://test.com");
         when(trelloConfig.getTrelloAppKey()).thenReturn("test");
