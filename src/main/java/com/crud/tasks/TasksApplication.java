@@ -6,15 +6,16 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-//public class TasksApplication extends SpringBootServletInitializer {
-public class TasksApplication {
+public class TasksApplication extends SpringBootServletInitializer { //Heroku
+//public class TasksApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TasksApplication.class, args);
 	}
 
-//	@Override
-//	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//		return application.sources(TasksApplication.class);
-//	}
+//	Disable for Heroku
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(TasksApplication.class);
+	}
 }

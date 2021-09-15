@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-//	id 'war'
+//	id 'war' //Enable for standalone Tomcat
 }
 
 group = 'com.crud'
@@ -18,10 +18,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-//	runtimeOnly 'mysql:mysql-connector-java'
-	runtimeOnly 'org.postgresql:postgresql' //heroku
+	runtimeOnly 'mysql:mysql-connector-java'
+//	runtimeOnly 'org.postgresql:postgresql' //heroku
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -29,7 +30,10 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok:1.18.20'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 
-//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' //disable for heroku
+	compile('io.springfox:springfox-swagger2:2.9.2')
+	compile('io.springfox:springfox-swagger-ui:2.9.2')
+
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat' //heroku
 }
 
 test {
