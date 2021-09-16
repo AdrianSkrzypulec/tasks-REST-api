@@ -31,18 +31,18 @@ class SimpleEmailServiceTest {
 //        Mail mail = new Mail("test@test.com", "cc@gmail.com", "Test", "Test Message");
         Mail mail = Mail.builder()
                 .mailTo("test@test.com")
-                .toCc(Optional.empty())
                 .subject("Test")
                 .message("Test Message")
+                .toCc(Optional.empty())
                 .build();
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
+        mailMessage.setSubject(mail.getSubject());
+        mailMessage.setText(mail.getMessage());
         if (mail.getToCc().isPresent()) {
             mailMessage.setCc(mail.getToCc().get());
         }
-        mailMessage.setSubject(mail.getSubject());
-        mailMessage.setText(mail.getMessage());
 
         //When
         simpleEmailService.send(mail);
