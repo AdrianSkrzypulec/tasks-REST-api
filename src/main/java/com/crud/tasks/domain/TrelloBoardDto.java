@@ -14,11 +14,14 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloBoardDto {
 
+    @JsonProperty("id")
+    private String id;
+
     @JsonProperty("name")
     private String name;
 
-    @JsonProperty("id")
-    private String id;
+//    @JsonProperty("id")
+//    private String id;
 
     @JsonProperty("lists")
     private List<TrelloListDto> lists;

@@ -33,15 +33,15 @@ class SimpleEmailServiceTest {
                 .mailTo("test@test.com")
                 .subject("Test")
                 .message("Test Message")
-                .toCc(Optional.empty())
+                .toCc(null)
                 .build();
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-        if (mail.getToCc().isPresent()) {
-            mailMessage.setCc(mail.getToCc().get());
+        if (mail.getToCc() != null) { //if (mail.getToCc().isPresent()) {
+            mailMessage.setCc(mail.getToCc()); //.get
         }
 
         //When
