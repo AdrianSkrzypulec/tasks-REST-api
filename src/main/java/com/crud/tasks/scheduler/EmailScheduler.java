@@ -22,7 +22,7 @@ public class EmailScheduler {
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String msg = size + (size > 1? " tasks": " task");
-        simpleEmailService.send(
+        simpleEmailService.scheduleSend(
                 new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT,
