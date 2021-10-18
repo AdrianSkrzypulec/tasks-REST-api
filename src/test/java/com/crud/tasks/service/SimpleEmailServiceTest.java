@@ -10,8 +10,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -33,15 +31,16 @@ class SimpleEmailServiceTest {
                 .mailTo("test@test.com")
                 .subject("Test")
                 .message("Test Message")
-                .toCc(null)
+                .toCc(Optional.empty())
                 .build();
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-        if (mail.getToCc() != null) { //if (mail.getToCc().isPresent()) {
-            mailMessage.setCc(mail.getToCc()); //.get
+//        if (mail.getToCc() != null) {
+            if (mail.getToCc().isPresent()) {
+            mailMessage.setCc(mail.getToCc().get());
         }
 
         //When
